@@ -34,12 +34,15 @@ const checkNavState = (currentStep, stepsLength) => {
 }
 
 export default class MultiStep extends React.Component {
-  state = {
-    showPreviousBtn: false,
-    showNextBtn: true,
-    compState: 0,
-    navState: getNavStates(0, this.props.steps.length)
-  }
+    constructor() {
+        super();
+        this.state = {
+          showPreviousBtn: false,
+          showNextBtn: true,
+          compState: 0,
+          navState: getNavStates(0, this.props.steps.length)
+        }
+}
 
   setNavState = next => {
     this.setState({
