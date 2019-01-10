@@ -71,21 +71,21 @@ export default class MultiStep extends React.Component {
     }
   }
 
-  next = () => {
+  next  () {
     this.setNavState(this.state.compState + 1)
   }
 
-  previous = () => {
+  previous() {
     if (this.state.compState > 0) {
       this.setNavState(this.state.compState - 1)
     }
   }
 
-  getClassName = (className, i) => {
+  getClassName(className, i)  {
     return className + '-' + this.state.navState.styles[i]
   }
 
-  renderSteps = () => {
+  renderSteps() {
     return this.props.steps.map((s, i) => (
       <li
         className={this.getClassName('progtrckr', i)}
