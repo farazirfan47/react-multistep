@@ -34,17 +34,17 @@ const checkNavState = (currentStep, stepsLength) => {
 }
 
 export default class MultiStep extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-          showPreviousBtn: false,
-          showNextBtn: true,
-          compState: 0,
-          navState: getNavStates(0, this.props.steps.length)
-        }
-}
+  constructor() {
+    super();
+    this.state = {
+      showPreviousBtn: false,
+      showNextBtn: true,
+      compState: 0,
+      navState: getNavStates(0, this.props.steps.length)
+    }
+  }
 
-  setNavState (next) {
+  setNavState(next) {
     this.setState({
       navState: getNavStates(next, this.props.steps.length)
     })
@@ -71,7 +71,7 @@ export default class MultiStep extends React.Component {
     }
   }
 
-  next  () {
+  next() {
     this.setNavState(this.state.compState + 1)
   }
 
@@ -81,13 +81,13 @@ export default class MultiStep extends React.Component {
     }
   }
 
-  getClassName(className, i)  {
+  getClassName(className, i) {
     return className + '-' + this.state.navState.styles[i]
   }
 
   renderSteps() {
-    return this.props.steps.map((s, i) => (
-      <li
+    return this.props.steps.map((s, i) => {
+      return <li
         className={this.getClassName('progtrckr', i)}
         onClick={this.handleOnClick}
         key={i}
@@ -96,10 +96,10 @@ export default class MultiStep extends React.Component {
         <em>{i + 1}</em>
         <span>{this.props.steps[i].name}</span>
       </li>
-    ))
+    })
   }
 
-  render () {
+  render() {
     return (
       <div className='container' onKeyDown={this.handleKeyDown}>
         <ol className='progtrckr'>
