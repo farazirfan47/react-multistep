@@ -44,7 +44,7 @@ export default class MultiStep extends React.Component {
         }
 }
 
-  setNavState = next => {
+  setNavState (next) {
     this.setState({
       navState: getNavStates(next, this.props.steps.length)
     })
@@ -54,13 +54,13 @@ export default class MultiStep extends React.Component {
     this.setState(checkNavState(next, this.props.steps.length))
   }
 
-  handleKeyDown = evt => {
+  handleKeyDown(evt) {
     if (evt.which === 13) {
       this.next()
     }
   }
 
-  handleOnClick = evt => {
+  handleOnClick(evt) {
     if (
       evt.currentTarget.value === this.props.steps.length - 1 &&
       this.state.compState === this.props.steps.length - 1
